@@ -65,6 +65,8 @@ def change_title(message):
     user = message.from_user
     result = bot.set_chat_administrator_custom_title(CHAT_ID, user.id, message.text)
     print("change title: ", result)
+    markup = telebot.types.ReplyKeyboardRemove(selective=False)
+    bot.send_message(message.chat.id, "Changed title to "+message.text, reply_markup=markup)
 
 
 def promote(user, chat):
