@@ -21,13 +21,6 @@ def get_chat_id(message):
     print(chat)
 
 
-@bot.message_handler(commands=['test'])
-def id_print(message):
-    user = message.from_user
-    username = user.username
-    bot.send_message(CHAT_ID, username+" says asd")
-
-
 @bot.message_handler(commands=['change'])
 def change(message):
     user = message.from_user
@@ -57,7 +50,7 @@ def change_title(message):
 
 def promote(user, chat):
     result = bot.promote_chat_member(chat, user, can_change_info=True, can_invite_users=True)
-    #print("promote:", result)
+    print("promote:", result)
 
 
 bot.infinity_polling()
